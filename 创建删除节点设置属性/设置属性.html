@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				width: 200px;
+				height: 200px;
+				border: 1px red solid;
+			}
+			.div2{
+				border-radius: 50px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oDiv = document.getElementById("div1");
+				oDiv.setAttribute("style","background-color:red");
+				//设置属性的方式
+//				alert(oDiv.getAttribute("style"));
+//				删除style不会对css中的代码有任何影响
+				//获取属性的方式
+				oDiv.removeAttribute("class");
+				
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div1" class="div2" style="background-color: red;"></div>
+		<!--<input id="div1"/>-->
+	</body>
+</html>

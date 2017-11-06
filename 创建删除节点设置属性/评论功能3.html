@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oTxt = document.getElementById("txt");
+				var oBtn = document.getElementById("btn");
+				var oUl = document.getElementById("ul1");
+				oBtn.onclick=function(){
+					var aLi = oUl.getElementsByTagName("li");
+					var oLi = document.createElement("li");
+					oLi.innerHTML = oTxt.value + "<a href='javascript:;'>删除</a>";
+					//oUl.appendChild(oLi);
+					if(aLi.length==0)
+					{
+						oUl.appendChild(oLi);
+					}
+					else{
+						oUl.insertBefore(oLi,aLi[0]);
+					}
+					var aA = oUl.getElementsByTagName("a");
+					for(var i = 0;i<aA.length;i++)
+					{
+						aA[i].onclick=function(){
+							oUl.removeChild(this.parentNode);
+						}
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" id="txt" /><input type="button" value="评论" id="btn" />
+		<ul id="ul1">
+		</ul>
+	</body>
+</html>

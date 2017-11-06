@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				
+				var oDate = new Date();
+				//oDate.setDate(32);
+				//当setDate的值大于最大值的话，会向前进一位
+				oDate.setDate(oDate.getDate()+8);
+				document.cookie = "User=Nino;expires="+oDate;
+				document.cookie = "Pass=1234;expires="+oDate;
+				
+				var oTxt1 = document.getElementById("txt1");
+				var oTxt2 = document.getElementById("txt2");
+				var oBtn = document.getElementById("btn1");
+				
+				//alert(document.cookie)
+				var str = document.cookie;
+				var arr = str.split("; ");
+				//alert(arr[0])
+				var arr0 = [];
+				for(var i = 0;i<arr.length;i++)
+				{
+					var arr1 = arr[i].split("=");
+					arr0.push(arr1)//alert(arr1);
+				}
+				//alert(arr0[0][0])
+				/*
+				 二维数组
+				 * */
+				
+				oBtn.onclick=function(){
+					if(oTxt1.value==arr0[0][1])
+					{
+						if(oTxt2.value==arr0[1][1])
+						{
+							alert("登陆成功")
+						}
+						else
+						{
+							alert("密码错误");
+						}
+					}
+					else{
+						alert("无效的用户名")
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+	
+		用户名：<input type="text" id="txt1" /><br>
+		密码：<input type="text" id="txt2" /><br>
+		<input type="button" value="提交" id="btn1" />
+	</body>
+</html>

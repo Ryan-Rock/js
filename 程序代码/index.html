@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>十五中秋嫦娥奔月</title>
+<style>
+body{ background-size:100% 100%; background-attachment:fixed; background-color:#009}
+#page1{ width:1024px; height:350px; background-image:url(images/aa1.jpg); position:absolute; z-index:999}
+#page2{ width:1024px; height:350px; background-image:url(images/aa2.jpg); position:absolute; z-index:999; top:350px}
+#page3{ width:124px; height:124px; background-image:url(images/btn.png); background-size:100%; position:absolute; z-index:999; top:282px; left:450px; border-radius:62px}
+#yuebing{ width:400px; height:600px; background-image:url(images/change5.png); background-size:100%; position:absolute;
+left:200px; display:none}
+#box{ width:1024px; height:700px; margin:0 auto; position:relative;; overflow:hidden; border:5px solid #FFF; border-radius:80px; background-image:url(images/bg.jpg); background-size:100%}
+#moon{ width:160px; height:160px; background-image:url(images/moon.png); background-size:100%; position:absolute; left:50px; top:100px}
+#change{ width:300px; height:150px; background-image:url(images/change3.png); background-size:100% 100%; position:absolute; left:710px; top:420px}
+.zi{ width:80px; height:400px; position:absolute;}
+#zi01{ background-image:url(images/zi01.png); background-size:100%; left:640px; top:50px; height:0px}
+#zi02{ background-image:url(images/zi02.png); background-size:100%; left:760px; top:150px; height:0px}
+/*#btn{ width:80px; height:80px; position:absolute; left:800px; top:100px; background-image:url(images/a1.png); background-size:100%; display:none;}
+#btn:hover{ background-image:url(images/a2.png)}*/
+</style>
+<script src="js/jquery-1.7.1.min.js"></script>
+<script>
+window.onload=function()
+{
+	var oBox = document.getElementById("box");
+	var oChange = document.getElementById("change");
+	var oBtnStart = document.getElementById("page3");
+	oBtnStart.onclick=function()
+	{
+		$("#page3").fadeOut(1000,function(){
+				$("#page1").animate({top:-350},5000,function(){
+					MoveStart();
+				});
+				$("#page2").animate({top:+700},5000);
+		});
+	}
+	var timer = null;
+	oChange.onmouseover=function()
+	{
+		//MoveStart();
+	}
+	function MoveStart()
+	{
+		timer = setInterval(function(){
+			if(oChange.offsetLeft<130)
+			{
+				clearInterval(timer);
+				$("#change").fadeOut(1000,function()
+				{
+					$("#yuebing").fadeIn(1500,function()
+					{
+						$("#zi01").animate({height:+400},1000,function()
+						{
+							$("#zi02").animate({height:+400},1000);
+						});
+					});
+				});
+				//oChange.style.display="none";
+
+			}
+			else
+			{
+				oChange.style.left = oChange.offsetLeft-5+"px";
+				oChange.style.top = oChange.offsetTop-2+"px";
+				oChange.style.width= oChange.offsetWidth-2+"px";
+				oChange.style.height= oChange.offsetHeight-1+"px";
+			}
+
+		},30);
+	}
+}
+</script>
+</head>
+
+<body>
+
+<div id="box">
+	<div id="page1"></div>
+    <div id="page2"></div>
+    <div id="page3"></div>
+	<div id="moon"></div>
+    <!--<div id="btn"></div>-->
+    <div id="yuebing"></div>
+    <div id="zi01" class="zi"></div>
+    <div id="zi02" class="zi"></div>
+    <div id="change"></div>
+</div>
+</body>
+</html>

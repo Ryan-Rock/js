@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/ajax.js" ></script>
+		<script>
+			window.onload=function(){
+				var oBtn = document.getElementById("btn1");
+				
+				oBtn.onclick=function(){
+					//ajax.js相当于是一个调用JavaScript中ajax的一个类库
+					//从服务器的一个文件中取出数据
+					//wamp.exe
+					ajax("aaa.txt",function(str){
+						var arr = eval(str)
+						//将格式正确的字符串转换成能
+						// 3........0被js识别的其他格式
+						alert(arr[1]);
+					});
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" value="弹出" id="btn1" />
+	</body>
+</html>

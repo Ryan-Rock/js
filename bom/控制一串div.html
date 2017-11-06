@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 20px;
+				height: 20px;
+				background-color: red;
+				position: absolute;
+				top: 50px;
+				left: 200px;
+				border-radius: 10px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var aDiv = document.getElementsByTagName("div");
+				aDiv[0].style.backgroundColor = "yellow"
+				document.onkeydown = function(ev){
+					var oEvent = ev||event;
+					
+					for(var i = aDiv.length-1;i>0;i--)
+					{
+						aDiv[i].style.left = aDiv[i-1].offsetLeft+"px";
+						aDiv[i].style.top = aDiv[i-1].offsetTop+"px";
+					}
+					
+					
+					if(oEvent.keyCode == 37)
+					{
+						aDiv[0].style.left = aDiv[0].offsetLeft - 20 +"px";
+					}
+					else if(oEvent.keyCode==38)
+					{
+						aDiv[0].style.top = aDiv[0].offsetTop - 20 +"px";
+					}
+					else if(oEvent.keyCode == 39)
+					{
+						aDiv[0].style.left = aDiv[0].offsetLeft + 20 +"px";
+					}
+					else if(oEvent.keyCode==40)
+					{
+						aDiv[0].style.top = aDiv[0].offsetTop+20+"px";
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</body>
+</html>

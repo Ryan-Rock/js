@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>时间对象的方法</title>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oDiv = document.getElementById("div1");
+				function getTime(){
+					var oDate = new Date();
+					var oYear = oDate.getYear();
+					var oYear2 = oDate.getFullYear(); //获取年
+					var oMon = oDate.getMonth()+1;  //获取月份
+					var oDay = oDate.getDay();  //获取的是星期
+					var oDate2 = oDate.getDate();  //获取日期
+					var oHou = oDate.getHours();  //获取当前小时，24
+					var oMin = oDate.getMinutes();  //当前是51分
+					var oSec = oDate.getSeconds();	//获取秒	
+	//				alert(oSec); //
+					if(oSec<10)
+					{
+						oSec = "0"+oSec;
+					}
+					function a(str){
+						if(str<10){
+							str="0"+str;
+							return str;
+						}else{
+							return str;
+						}
+					}
+					oMon=a(oMon);
+					oDiv.innerHTML = oYear2+"年"+oMon+"月"+oDate2+"日"+oHou+"时"+oMin+"分"+oSec+"秒";
+				}
+				
+				setInterval(function(){
+					getTime();
+				},1000);
+				//对象的实例化，调用事件对象
+				//alert("2017年8月9号")
+				//1.获取年
+				//alert(2017-117);
+				//1900年是计算机的时间元年
+				getTime();
+				
+				//0-11 
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div1"></div>
+	</body>
+</html>

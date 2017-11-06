@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+	</head>
+	<body>
+		<img src="img/1.jpg" id="img" /><br />
+		<input type="button" value="开始" id="btn1"/>
+		<input type="button" value="结束" id="btn2"/>
+		<script type="text/javascript">
+			var oImg = document.getElementById("img");
+			var oBtn1 = document.getElementById("btn1");
+			var oBtn2 = document.getElementById("btn2");
+			var timer = null;
+			var a = 1;
+			
+			oBtn1.onclick=function(){
+				clearInterval(timer);
+				timer = setInterval(function(){
+					
+					oImg.src = "img/"+a+".jpg";
+					
+					a++;
+					if(a==9)
+					{
+						a=1;
+					}
+				},30);
+			}
+			oBtn2.onclick=function(){
+				clearInterval(timer);
+			}
+		</script>
+	</body>
+</html>

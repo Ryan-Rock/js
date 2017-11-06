@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function()
+			{
+				var oBtn = document.getElementById("btn1");
+				oBtn.addEventListener("click",function(){
+					alert("a");
+				})
+				oBtn.addEventListener("click",function(){
+					alert("b");
+				})
+				//这种办法可以给元素直接添加多个点击事件，都会执行
+				//attachevent支持IE低版本
+//				oBtn.attachEvent("onclick",function(){
+//					alert("a")
+//				})
+//				oBtn.attachEvent("onclick",function(){
+//					alert("b")
+//				})
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" name="btn1" id="btn1" value="123" />
+	</body>
+</html>

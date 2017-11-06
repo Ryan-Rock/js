@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			var a = 123;
+			var b = a.toString();
+
+			//强制类型转换
+			var c = ""+a; //隐式类型转换
+			var d = a.toLocaleString();  //可以认为，和toString没有区别
+//			alert(typeof d);
+			var e = 128.5678;
+			var f = e.toFixed(2);
+			alert(f);//128.57
+			//1.保留X位小数
+			//2.X位之后的数会四舍五入
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

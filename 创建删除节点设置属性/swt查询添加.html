@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			#div1{
+				width: 400px;
+				height: 300px;
+				background-color: red;
+				position: absolute;
+				left: 100px;
+				top: 50px;	
+				display: none;		
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oTab = document.getElementById("tab1");
+				var oBtn = document.getElementById("btn1");
+				var oDiv  =document.getElementById("div1");
+				var sName = document.getElementById("sf_name");
+				var sAge = document.getElementById("sf_age");
+				var sSex = document.getElementById("sf_sex");
+				var sTel = document.getElementById("sf_tel");
+				var oBtn2 = document.getElementById("btn2");
+				var oKey = document.getElementById("key");
+				var oSec = document.getElementById("sec");
+				var a = 1;
+				var arr = [["关羽","18","男","123456"],
+						   ["张飞","17","男","456786"],
+						   ["貂蝉","16","女","159456"],
+						   ["大乔","15","女","456852"],
+						   ["孙尚香","16","女","258456"]];
+						   
+				for(var i = 0;i<arr.length;i++)
+				{
+					var oTr = document.createElement("tr");
+					
+					var oTd = document.createElement("td");
+					oTd.innerHTML = a++;
+					oTr.appendChild(oTd);
+					
+					var oTd = document.createElement("td");
+					oTd.innerHTML = arr[i][0];
+					oTr.appendChild(oTd);
+					
+					var oTd = document.createElement("td");
+					oTd.innerHTML = arr[i][1];
+					oTr.appendChild(oTd);
+					
+					var oTd = document.createElement("td");
+					oTd.innerHTML = arr[i][2];
+					oTr.appendChild(oTd);
+					
+					var oTd = document.createElement("td");
+					oTd.innerHTML = arr[i][3];
+					oTr.appendChild(oTd);
+					
+					var oTd = document.createElement("td");
+					oTd.innerHTML = "<a href='javascript:;'>删除</a>";
+					oTr.appendChild(oTd);
+					
+					oTab.tBodies[0].appendChild(oTr);
+
+				}
+				oBtn.onclick=function(){
+					oDiv.style.display = "block";
+				}
+				oBtn2.onclick=function(){
+					var oTr = document.createElement("tr");
+					
+					var oTd = document.createElement("td");
+					oTd.innerHTML = a++;
+					oTr.appendChild(oTd);
+					
+					var oTd = document.createElement("td");
+					oTd.innerHTML = sName.value;
+					oTr.appendChild(oTd);
+					
+					var oTd = document.createElement("td");
+					oTd.innerHTML = sAge.value;
+					oTr.appendChild(oTd);
+					
+					var oTd = document.createElement("td");
+					oTd.innerHTML = sSex.value;
+					oTr.appendChild(oTd);
+					
+					var oTd = document.createElement("td");
+					oTd.innerHTML = sTel.value;
+					oTr.appendChild(oTd);
+					
+					var oTd = document.createElement("td");
+					oTd.innerHTML = "<a href='javascript:;'>删除</a>";
+					oTr.appendChild(oTd);
+					
+					oTab.tBodies[0].appendChild(oTr);
+					sName.value = "";
+					sAge.value="";
+					sSex.value="";
+					sTel.value="";
+					
+					del();
+					
+					oDiv.style.display = "none";
+				}
+				function del()
+				{
+					var aA = oTab.getElementsByTagName("a");
+					for(var i = 0;i<aA.length;i++)
+					{
+						aA[i].onclick=function(){
+							oTab.tBodies[0].removeChild(this.parentNode.parentNode);
+						}
+					}
+				}
+				del();
+				oSec.onclick=function(){
+					
+					for(var i = 0;i<oTab.tBodies[0].rows.length;i++)
+					{
+						oTab.tBodies[0].rows[i].style.backgroundColor = "";
+						for(var j = 0;j<oTab.tBodies[0].rows[0].cells.length;j++)
+						{
+							var aa = oTab.tBodies[0].rows[i].cells[j].innerHTML.toLowerCase();
+							var bb = oKey.value.toLowerCase();
+							if(aa.search(bb)!=-1)
+							{
+								oTab.tBodies[0].rows[i].style.backgroundColor = "yellow";
+							}
+							else{
+								oTab.tBodies[0].rows[i].style.backgroundColor = "";
+							}
+						}
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" value="添加" id="btn1" /><br />
+		<input type="text" id="key" /><input type="button" value="查找" id="sec" />
+		<table border="1" id="tab1">
+			<tr>
+				<td>ID</td>
+				<td>Name</td>
+				<td>Age</td>
+				<td>Sex</td>
+				<td>Tel</td>
+				<td>操作</td>
+			</tr>
+		</table>
+		<div id="div1">
+			<form>
+				员工姓名：<input type="text" id="sf_name" /><br />
+				员工年龄：<input type="text" id="sf_age" /><br />
+				员工性别：<input type="text" id="sf_sex" /><br />
+				员工电话：<input type="text" id="sf_tel" /><br />
+				<input type="reset" value="重置" />
+				<input type="button" value="提交" id="btn2" />
+				
+			</form>
+			
+		</div>
+	</body>
+</html>

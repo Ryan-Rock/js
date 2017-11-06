@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" id="lin1" href="css/css1.css"/>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oBtn1 = document.getElementById("btn1");
+				var oBtn2 = document.getElementById("btn2");
+				var oBtn3 = document.getElementById("btn3");
+				var oLin = document.getElementById("lin1");
+				oBtn1.onclick=function(){
+					oLin.href = "css/css1.css"
+				}
+				oBtn2.onclick=function(){
+					oLin.href = "css/css2.css"
+				}
+				oBtn3.onclick=function(){
+					oLin.href = "css/css3.css"
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" value="1" id="btn1" />
+		<input type="button" value="2" id="btn2" />
+		<input type="button" value="3" id="btn3" />
+	</body>
+</html>

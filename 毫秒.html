@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+	</head>
+	<body>
+		<span id="sp1"></span>
+		<script type="text/javascript">
+			var oSp = document.getElementById("sp1");
+			setInterval(function(){
+				var oDate = new Date();
+				var hao = oDate.getTime();
+				oSp.innerHTML = hao;
+			},1)
+			//alert(hao);
+		</script>
+	</body>
+</html>

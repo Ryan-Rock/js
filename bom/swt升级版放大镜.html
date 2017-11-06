@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#small{
+				width: 200px;
+				height: 200px;
+				background-image: url(img/aa.jpg);
+				background-size: 100% 100%;
+				position: relative;
+				margin-left: 100px;
+			}
+			#small_small{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				opacity: 0.5;
+				display: none;
+				position: absolute;
+			}
+			#big{
+				width: 400px;
+				height: 400px;
+				background-image: url(img/aa.jpg);
+				/*background-position: -20px -200px;*/
+				/*background-position-x: -20px;
+				background-position-y: -200px;*/
+				background-size:200% 200% ;		
+				display: none;	
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oSmall = document.getElementById("small");
+				var oMove = document.getElementById("small_small");
+				var oBig = document.getElementById("big");
+				
+				oSmall.onmouseover = function(){
+					oMove.style.display = "block"
+					oBig.style.display = "block"
+					oSmall.onmousemove = function(ev){
+						var oEvent = ev||event;
+						if(oEvent.clientX - oSmall.offsetLeft-50<0)
+						{
+							oMove.style.left = 0;
+						}
+						else if(oEvent.clientX - oSmall.offsetLeft-50>100)
+						{
+							oMove.style.left = 100+"px";
+						}
+						else if(oEvent.clientY - oSmall.offsetTop-50<0)
+						{
+							oMove.style.top = 0;
+						}
+						else if(oEvent.clientY - oSmall.offsetTop-50>100)
+						{
+							oMove.style.top = 100+"px";
+						}
+						else{
+							oMove.style.left = oEvent.clientX - oSmall.offsetLeft-50+"px"
+							oMove.style.top = oEvent.clientY-oSmall.offsetTop-50+"px"
+							oBig.style.backgroundPositionX = -(oEvent.clientX - oSmall.offsetLeft-50)*4+"px"
+							oBig.style.backgroundPositionY= -(oEvent.clientY-oSmall.offsetTop-50)*4+"px"
+							//移动多少
+						}
+//						
+						
+					}
+				}
+				oSmall.onmouseout = function(){
+					oMove.style.display = "none";
+					oBig.style.display = "none"
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="small">
+			<div id="small_small"></div>
+		</div>
+		<div id="big"></div>
+	</body>
+</html>

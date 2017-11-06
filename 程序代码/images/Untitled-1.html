@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+#chen{ width:800px; height:450px; background-image:url(../../a1.jpg); background-size:100%; position:absolute; display:none}
+#box{ width:800px; height:450px; background-image:url(../../a2.jpg); background-size:100%; position:absolute}
+#box div{ width:50px; height:50px; background-color:#666}
+</style>
+<script src="../js/jquery-1.7.1.min.js"></script>
+<script>
+$(function(){
+	$(".div1").on("click",function(){
+		$("#chen").fadeIn(1000,function(){
+			$("#box").css("background-image","url(../../a4.jpg)");
+		});
+		
+	});	
+});
+</script>
+</head>
+
+<body>
+<div id="box">
+	<div id="chen"></div>
+	<div class="div1"></div>
+    <div class="div1"></div>
+    <div class="div1"></div>
+    <div class="div1"></div>
+</div>
+</body>
+</html>

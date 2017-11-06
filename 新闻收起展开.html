@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				width: 400px;
+				height: 100px;
+				background-color: beige;
+				position: relative;
+				overflow: hidden;
+			}
+			#div2{
+				width: 100px;
+				height: 25px;
+				background-color: yellow;
+				position:absolute ;
+				right: 0px;
+				bottom: 0px;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div id="div1">
+			如果说你是海上的烟火<br/>
+
+			我是浪花的泡沫<br/>
+
+			某一刻你的光照亮了我<br/>
+
+			如果说你是遥远的星河	<br/>
+
+			耀眼得让人想哭	<br/>
+
+			我是追逐着你的眼眸	<br/>
+
+			总在孤单时候眺望夜空	<br/>
+
+			我可以跟在你身后	<br/>
+
+			像影子追着光梦游	<br/>
+
+			我可以等在这路口	<br/>
+
+			不管你会不会经过	<br/>
+
+			每当我为你抬起头	<br/>
+
+			连眼泪都觉得自由	<br/>
+
+			有的爱像阳光倾落边拥有边失去着	<br/>
+
+			<div id="div2">全部内容</div>
+		</div>
+		<script type="text/javascript">
+			var oDiv1 = document.getElementById("div1");
+			var oDiv2 = document.getElementById("div2");
+			oDiv2.onclick=function()
+			{
+				if(oDiv1.style.height=="400px"){
+					oDiv1.style.height="100px"
+					oDiv2.innerHTML = "全部内容";
+				}
+				else{
+					oDiv1.style.height="400px";
+					oDiv2.innerHTML = "收起内容";
+				}
+			}
+		</script>
+	</body>
+</html>

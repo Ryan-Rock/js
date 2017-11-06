@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>标准选项卡</title>
+		<style type="text/css">
+			.div1{
+				width: 200px;
+				height: 200px;
+				background-color: blue;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="选项1" class="btn1" />
+		<input type="button" value="选项2" class="btn1" />
+		<input type="button" value="选项3" class="btn1" />
+		<input type="button" value="选项4" class="btn1" />
+		<div class="div1" style="display: block;">111</div>
+		<div class="div1">222</div>
+		<div class="div1">333</div>
+		<div class="div1">444</div>
+		<script type="text/javascript">
+			var aBtn = document.getElementsByClassName("btn1");
+			var aDiv = document.getElementsByClassName("div1");
+			for(var i = 0;i<aBtn.length;i++)
+			{
+				//1.写一个索引
+				//在循环的时候，给每一个按钮一个属性，属性值是i
+				aBtn[i].aa = i;
+				aBtn[i].onclick=function(){
+					for(var j = 0;j<aDiv.length;j++)
+					{
+						aDiv[j].style.display = "none";
+					}
+					//我们点击的按钮相应的div显示
+					//this.style.display = "block";
+					//2.根据按钮的索引值来改变div的属性
+					aDiv[this.aa].style.display = "block";
+
+				}
+			}
+		</script>
+	</body>
+</html>

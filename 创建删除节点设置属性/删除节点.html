@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oUl = document.getElementById("ul1");
+				var aA = oUl.getElementsByTagName("a");
+				for(var i = 0;aA.length;i++)
+				{
+					aA[i].onclick=function(){
+						//this.parentNode.style.display = "none";
+						oUl.removeChild(this.parentNode);
+						//把元素从页面当中删掉
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<ul id="ul1">
+			<li>asdhaslkdhklasjdlkasd<a href="javascript:;">删除</a></li>
+			<li>asdhaslkdhklasjdlkasd<a href="javascript:;">删除</a></li>
+			<li>asdhaslkdhklasjdlkasd<a href="javascript:;">删除</a></li>
+			<li>asdhaslkdhklasjdlkasd<a href="javascript:;">删除</a></li>
+			<li>asdhaslkdhklasjdlkasd<a href="javascript:;">删除</a></li>
+		</ul>
+	</body>
+</html>

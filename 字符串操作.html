@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript">
+			var a = "abcdefgf";
+			var b = a.slice(2,4);
+			//包含开始，不包含结束
+			alert(b);
+			var c = a.substring(2,4);//包含开始不包含结束
+			alert("c="+c);
+			var d = a.substr(2,4);
+			//从2开始，数4位，包含第二位 2 3 4 5
+			alert("d="+d);
+			var e = a.indexOf("f"); //检索字符在字符串中的位置,有多个，读取前面的也就是角标
+			alert("e="+e);
+			var f = a.lastIndexOf("f");  //检索字符在字符串中的位置，有多个的时候，读最后一个
+			alert("f="+f);
+			var g = " abc ";
+			var h = g.trim();
+			alert("h="+h);
+			var i = g.trimLeft();
+			alert(i.length);
+			
+			var j = "ABC";
+			alert("jj="+j.toLowerCase());
+			var k = "jqk";
+			alert("k"+k.toUpperCase());
+
+			var l = "24a56a78a67";
+			var m = l.split("a"); //将字符串分割为字符串的数组
+			alert("m"+m);
+			var info = "User-o-Edan-o-Sex-o-Men";
+			var rel = info.split("-o-");
+			
+			alert(rel);
+			
+			//alert(f);
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>
